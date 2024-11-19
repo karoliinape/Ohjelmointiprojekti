@@ -41,7 +41,7 @@ def is_strong_password(password):
     return True
 
 def generate_password(length):
-    """Luo satunnainen vahva salasana."""
+    # Luo satunnainen vahva salasana
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for i in range(length))
     return password
