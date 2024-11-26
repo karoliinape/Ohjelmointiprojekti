@@ -23,27 +23,6 @@ def caesar_encrypt(text, shift):
 def caesar_decrypt(text, shift):
     return caesar_encrypt(text, -shift)
 
-def is_strong_password(password):
-    # Vähintään 8 merkkiä pitkä
-    if len(password) < 8:
-        return False
-    
-    # Sisältää pieniä ja isoja kirjaimia, numeroita ja erikoismerkkejä
-    if not re.search(r'[a-z]', password):
-        return False
-    if not re.search(r'[A-Z]', password):
-        return False
-    if not re.search(r'[0-9]', password):
-        return False
-    if not re.search(r'[@$!%*?&]', password):
-        return False
-    
-    return True
-
-encrypted_passwords = []
-websites = []
-usernames = []
-
 def add_password():
     website = input("Enter website: ")
     username = input("Enter username: ")
