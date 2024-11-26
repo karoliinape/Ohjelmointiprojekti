@@ -40,13 +40,6 @@ def is_strong_password(password):
     
     return True
 
-def generate_password(length):
-    # Luo satunnainen vahva salasana
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for i in range(length))
-    return password
-
-
 encrypted_passwords = []
 websites = []
 usernames = []
@@ -55,13 +48,6 @@ def add_password():
     website = input("Enter website: ")
     username = input("Enter username: ")
     password = input("Enter password: ")
-
-    # Tarkistetaan, onko salasana vahva
-    if not is_strong_password(password):
-        print("Warning: The password is weak. Use stronger one.")
-        choice = input("Do you want to generate a random strong password? (yes/no): ")
-        if choice.lower() == "yes":
-            password = generate_password(12)  # Luo 12-merkkinen vahva salasana
 
     # Salasanan salaus
     shift = 3 
