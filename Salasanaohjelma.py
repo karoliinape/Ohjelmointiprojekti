@@ -23,6 +23,10 @@ def caesar_encrypt(text, shift):
 def caesar_decrypt(text, shift):
     return caesar_encrypt(text, -shift)
 
+websites = []
+usernames = []
+encrypted_passwords = []
+
 def add_password():
     website = input("Enter website: ")
     username = input("Enter username: ")
