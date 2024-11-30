@@ -30,7 +30,16 @@ encrypted_passwords = []
 def add_password():
     website = input("Enter website: ")
     username = input("Enter username: ")
-    password = input("Enter password: ")
+
+    is_valid = False
+    print("Password must be at least 10 characters, contain at least one uppercase letter and contain at least one digit.")
+    while is_valid == False:     
+        password = input("Enter password: ")
+        is_valid = is_strong_password(password)
+        if is_valid:
+          print("Valid Password.")
+        else:
+          print("Password does not meet requirements. Add new password.")
 
     # Salasanan salaus
     shift = 3 
@@ -78,6 +87,19 @@ def load_passwords():
     except FileNotFoundError:
         print("No saved passwords found.")
 
+# password validation
+def is_strong_password(password):
+    if len(password) < 10: #at least 10 characters
+        print("Password is too short. Must be at least 10 characters long.")
+        return False
+    elif not re.search("[A-Z]", password):  #at least one uppercase letter.
+        print("Password must contain at least one uppercase letter.")
+        return False
+    elif not re.search("[0-9]", password): #at least one digit.
+        print("Password must contain at least one digit")
+        return False
+    else:
+        return True
 
 
 def main():
